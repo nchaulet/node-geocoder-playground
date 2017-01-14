@@ -26,9 +26,9 @@ class App extends Component {
     );
   }
 
-  submitGeocodeForm(value) {
+  submitGeocodeForm(value, provider) {
     this.setState({loading: true});
-    geocode(value)
+    geocode(value, provider)
       .then(res => {
         this.setState({
           loading: false,
