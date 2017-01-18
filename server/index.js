@@ -1,9 +1,11 @@
 'use strict';
 
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const Geocoder = require('node-geocoder');
 const path = require('path');
+const R = require('ramda');
 
 const app = express();
 
@@ -11,14 +13,21 @@ app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-// app.get('/', (req, res) => {
-//    res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-// })
+const PROVIDER_OPTIONS = {
+  here: {
+    appId: process.env.HERE_APP_ID,
+    appCode: process.env.HERE_APP_CODE
+  }
+};
 
 app.get('/api/geocode', (req, res, next) => {
-  const geocoder = Geocoder({
-    provider: req.query.provider || 'google'
-  });
+  const provider = req.query.provider || 'google';
+  const options = PROVIDER_OPTIONS[provider]
+
+  const geocoder = Geocoder(R.merge({
+    provider,
+    httpAdapter: 'request'
+  }, options));
 
   geocoder.geocode(req.query.address)
     .then(data => ({

@@ -3,7 +3,10 @@ import './Form.css';
 
 const PROVIDERS = [
   'google',
-  'openstreetmap'
+  'openstreetmap',
+  'freegeoip',
+  'datasciencetoolkit',
+  'here'
 ];
 
 class Form extends Component {
