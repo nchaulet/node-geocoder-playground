@@ -6,7 +6,9 @@ const PROVIDERS = [
   'openstreetmap',
   'freegeoip',
   'datasciencetoolkit',
-  'here'
+  'here',
+  'yandex',
+  'opendatafrance'
 ];
 
 class Form extends Component {
