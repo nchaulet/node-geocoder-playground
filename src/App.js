@@ -3,6 +3,7 @@ import Form from './Form';
 import Results from './Results';
 import './App.css';
 import {geocode} from './api';
+import Loader from './components/Loader';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends Component {
           submitGeocode={this.submitGeocodeForm.bind(this)}
           loading={loading}
         />
-        {results ? <Results results={results} /> : null}
+        {loading ? <Loader /> : (results ? <Results results={results} /> : null)}
       </div>
     );
   }

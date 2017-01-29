@@ -8,7 +8,8 @@ const PROVIDERS = [
   'datasciencetoolkit',
   'here',
   'yandex',
-  'opendatafrance'
+  'opendatafrance',
+  'teleport'
 ];
 
 class Form extends Component {

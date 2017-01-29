@@ -25,8 +25,13 @@ const theme = {
 class Results extends Component {
   render() {
     const {results} = this.props;
+    const isEmpty = results.length === 0;
+
     return (
-      <div className="Results row">
+      <div className="Results container">
+        {isEmpty ? (
+          <div className="text-center">No results</div>
+        ) : null}
         {results.map((result, idx) => {
           return (
             <div key={idx}>
