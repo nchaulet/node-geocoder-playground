@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Form.css';
+import './SearchBar.css';
 
 const PROVIDERS = [
   'google',
@@ -12,12 +12,12 @@ const PROVIDERS = [
   'teleport'
 ];
 
-class Form extends Component {
+class SearchBar extends Component {
   render() {
     const {loading} = this.props;
 
     return (
-      <div className="Form row">
+      <div className="SearchBar row well">
         <form className="col-md-12 form-inline">
           <div className="form-group">
             <label htmlFor="exampleInputName2">Geocoder</label>
@@ -56,5 +56,5 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default SearchBar;
 

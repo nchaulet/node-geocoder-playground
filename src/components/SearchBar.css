@@ -1,0 +1,7 @@
+.SearchBar .form-inline > * {
+  margin: 5px;
+}
+
+.SearchBar .form-inline label {
+  margin: 5px;
+}
