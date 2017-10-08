@@ -38,4 +38,11 @@ app.get('/api/geocode', (req, res, next) => {
     .catch(next);
 });
 
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).send({
+    message: err.message
+  });
+});
+
 app.listen(process.env.PORT || 4000);
